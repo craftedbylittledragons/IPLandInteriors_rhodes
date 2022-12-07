@@ -5,7 +5,7 @@ Config.TeleportME = true -- For testing set to false for live server
 -- imap / ipl 
 Config.MansionShell = 1 --- 1 for Not Burnt, 2 for Burnt 
 Config.MansionInterior = true   
-Config.Fire = false
+Config.Fire = true
 Config.Shutters = false
 
 Config.Lantern = true
