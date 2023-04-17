@@ -3,7 +3,7 @@ local interiorsActive = false
 local character_selected = false 
 
 ----------- turn on ------
-function EnableResouresIMAP()            
+function EnableResouresYMAPS()            
     --[[
     if Config.Unknow == true then
         RequestImap(666617953) -- Something relating to BizTemplate
@@ -107,7 +107,7 @@ end
 -- currently there are two hitching posts. 
 
 ----------- turn off the bar ------
-function DisableResourcesIMAPS() 
+function DisableResourcesYMAPS() 
 	--## Back Wagons ##-- 
 	RemoveImap(1084869405)    -- Campaign -- Back Wagons -- Two Wagons v1 Supplies 674 -1267 43
 	RemoveImap(1636281938)    -- Campaign -- Back Wagons -- Two Wagons v2 Empty 674 -1267 43
@@ -161,7 +161,7 @@ end
 AddEventHandler('onResourceStop', function(resource) 
     if resource == GetCurrentResourceName() then     
         -- when resource stops disable them, admin is restarting the script
-        DisableResourcesIMAPS() 
+        DisableResourcesYMAPS() 
         DisableResourcesINTERIORS(Config.x, Config.y, Config.z)
     end
 end)
@@ -173,7 +173,7 @@ AddEventHandler('onResourceStart', function(resource)
     if resource == GetCurrentResourceName() then         
         Citizen.Wait(3000)
         -- interiors loads all of these, so we need to disable them 
-        DisableResourcesIMAPS() 
+        DisableResourcesYMAPS() 
         DisableResourcesINTERIORS(Config.x, Config.y, Config.z)
         Citizen.Wait(3000)        
         -- because the character is already logged in on resource "re"start
@@ -199,11 +199,11 @@ Citizen.CreateThread(function()
     end 
     if character_selected == true and interiorsActive == false then 
         --- cleanup any previous scripts loading content
-        DisableResourcesIMAPS() 
+        DisableResourcesYMAPS() 
         DisableResourcesINTERIORS(Config.x, Config.y, Config.z)
 
         -- basically run once after character has loadded in  
-        EnableResouresIMAP() 
+        EnableResouresYMAPS() 
         EnableResouresINTERIORS(Config.x, Config.y, Config.z)
         interiorsActive = true
         unlockDoors()  
